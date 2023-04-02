@@ -1,0 +1,15 @@
+.card{
+    width: 50%;
+    height: 100%;
+    margin: 100px auto;
+    animation : fadeIn 0.3s forwards;
+}
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    } to{ 
+        opacity: 1;
+    }
+}
