@@ -2,7 +2,6 @@ import "./globals.css";
 import Card from "@/components/Card/Card";
 import Header from "@/components/Header/Header";
 import ContenCard from "@/components/Card/ContenCard";
-import Footer from "@/components/Footer/Footer";
 import localFont from "next/font/local";
 
 export const metadata = {
@@ -14,7 +13,7 @@ export const metadata = {
 };
 
 const myFont = localFont({
-  src: "./fonts/NanumGothic-Bold.ttf",
+  src: "./fonts/NanumGothic-Regular.ttf",
   display: "swap",
 });
 
@@ -30,7 +29,6 @@ export default function RootLayout({
           <Header />
           <ContenCard>{children}</ContenCard>
         </Card>
-        <Footer />
       </body>
     </html>
   );

@@ -1,11 +1,144 @@
 .header_container{
     position: fixed;
-    width: 100%;
-    height: 100px;
-    background: rgb(228, 228, 228);
-    border-bottom: 0.5px solid black;
+    width: 200px;
+    height: 100%;
+    background: #fff;
+    border-right: 0.5px solid black;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
+
+.header_container.modal_open{
+    width: 60px;
+}
+
+.header_container span{
+    font-size: 20px;
+}
+
+.home_container{
+    padding: 10px;
+}
+
+.link_container{
+    height: 85%;
+}
+
+.home_link{
+    color: black;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.home{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color : black;
+    padding: 10px;
+    border-radius : 40px;
+}
+
+.post{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color : black;
+    padding: 10px;
+    border-radius : 40px;
+    cursor: pointer;
+}
+
+.profile{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color : black;
+    cursor: pointer;
+    padding: 10px;
+    border-radius : 40px;
+}
+.search{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color : black;
+    padding: 10px;
+    border-radius : 40px;
+    cursor: pointer;  
+    width: 100%;
+}
+
+.text{
+    margin-left: 10px;
+}
+
+.icon{
+    margin : 0 5px;
+    font-size: 23px;
+    margin-top: 5px;
+    scale: 1;
+    transition: all 0.3s ease;
+}
+
+.home_icon{
+    margin-right: 5px;
+}
+
+.icon_modal_open{
+
+    border : 1px solid black;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+
+.post_icon { 
+    margin-top: 7px;
+}
+
+
+
+.home:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+.post:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.search:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.profile:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+
+
+.home:hover .home_icon{
+    scale: 1.05;
+}
+
+.post:hover .post_icon{
+    scale: 1.05;
+}
+
+.search:hover .search_icon{
+    scale: 1.05;
+}
+
+.profile:hover .profile_icon{
+    scale: 1.05;
+}
+
