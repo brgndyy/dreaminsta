@@ -1,7 +1,7 @@
 import "./globals.css";
-import Card from "@/components/Card/Card";
-import Header from "@/components/Header/Header";
-import ContenCard from "@/components/Card/ContenCard";
+import Card from "./components/Card/Card";
+import Header from "./components/Header/Header";
+import ContenCard from "./components/Card/ContenCard";
 import localFont from "next/font/local";
 
 export const metadata = {
