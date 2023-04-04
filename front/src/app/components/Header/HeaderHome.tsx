@@ -1,5 +1,3 @@
-"use client";
-
 import classes from "./HeaderHome.module.css";
 import Link from "next/link";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
