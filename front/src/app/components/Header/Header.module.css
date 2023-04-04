@@ -24,15 +24,37 @@
 }
 
 .home_container{
-    height: 220px;
+    height: 100px;
     margin-top: 20px;
 
 }
 
 .link_container{
-    height: 85%;
+    height: 600px;
 }
 
+.insta_icon{
+    position: absolute;
+    scale: 0;
+    transition: all 0.3s ease;
+}
+
+.insta_icon.modal_open{
+    scale: 1;
+}
+
+.main_logo{
+    opacity: 1;
+    margin-top: 0;
+    font-weight: bold;
+    margin-left : 10px;
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.main_logo.logo_modal_open{
+    opacity: 0;
+}
 
 
 .home_link{
@@ -41,6 +63,7 @@
   margin-left: 10px;
   margin-top: 20px;
   margin-bottom: 30px;
+  position: relative;
 }
 
 .home{
@@ -53,6 +76,7 @@
     width: 100%;
     padding: 10px;
     margin: 5px 0;
+
 }
 
 .post{
@@ -78,6 +102,11 @@
     padding: 10px;
     margin: 5px 0;
 }
+
+.profile span{
+    margin-bottom: 3px;
+}
+
 .search{
     margin-right: 10px;
     display: flex;
@@ -98,16 +127,23 @@
 
 .text{
     margin-left: 13px;
-    display: flex;
-    justify-content : center;
-    align-items : center;
-    padding: 5px;
+  position: absolute;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  white-space: nowrap;
+  height: 25px;
+  overflow: hidden;
+  animation: fadeIn 0.6s forwards;
+
 }
 
 .icon{
 
     font-size: 23px;
-
+    position: relative;
     scale: 1;
     transition: all 0.3s ease;
 }
@@ -159,3 +195,24 @@
     scale: 1.05;
 }
 
+
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes scaleFadeOut{
+    from{
+        scale: 0;
+    }
+
+    to{
+        scale: 1;
+    }
+}

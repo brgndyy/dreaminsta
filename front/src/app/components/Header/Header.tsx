@@ -1,17 +1,19 @@
 "use client";
 
 import classes from "./Header.module.css";
-import { AiFillHome, AiOutlineSearch } from "react-icons/ai";
+import { AiFillHome, AiOutlineSearch, AiOutlineHome } from "react-icons/ai";
+import { BsInstagram } from "react-icons/bs";
 import Link from "next/link";
 import { BsPlusSquare } from "react-icons/bs";
 import MoreSetting from "./MoreSetting";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function Header() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const modalHandler = () => {
-    setModalIsOpen(true);
+    setModalIsOpen(!modalIsOpen);
   };
 
   return (
@@ -23,7 +25,18 @@ export default function Header() {
       >
         <div className={classes.home_container}>
           <Link href={"/"} className={classes.home_link}>
-            Instagram
+            <BsInstagram
+              className={`${classes.insta_icon} ${
+                modalIsOpen ? classes.modal_open : ""
+              }`}
+            />
+            <p
+              className={`${classes.main_logo} ${
+                modalIsOpen ? classes.logo_modal_open : ""
+              }`}
+            >
+              Instagram{" "}
+            </p>
           </Link>
         </div>
         <div className={classes.link_container}>
@@ -33,9 +46,12 @@ export default function Header() {
                 modalIsOpen && classes.icon_modal_open
               }`}
             >
-              <AiFillHome />
+              {modalIsOpen ? <AiOutlineHome /> : <AiFillHome />}
             </div>
-            <div className={classes.text}>
+            <div
+              className={classes.text}
+              style={{ display: modalIsOpen ? "none" : "flex" }}
+            >
               <span>홈</span>
             </div>
           </Link>
@@ -43,7 +59,10 @@ export default function Header() {
             <div className={`${classes.icon} ${classes.search_icon}`}>
               <AiOutlineSearch />
             </div>
-            <div className={classes.text}>
+            <div
+              className={classes.text}
+              style={{ display: modalIsOpen ? "none" : "flex" }}
+            >
               <span>검색</span>
             </div>
           </div>
@@ -51,7 +70,10 @@ export default function Header() {
             <div className={`${classes.icon} ${classes.post_icon}`}>
               <BsPlusSquare />
             </div>
-            <div className={classes.text}>
+            <div
+              className={classes.text}
+              style={{ display: modalIsOpen ? "none" : "flex" }}
+            >
               <span>만들기</span>
             </div>
           </div>
@@ -59,13 +81,16 @@ export default function Header() {
             <div className={`${classes.icon} ${classes.profile_icon}`}>
               <BsPlusSquare />
             </div>
-            <div className={classes.text}>
+            <div
+              className={classes.text}
+              style={{ display: modalIsOpen ? "none" : "flex" }}
+            >
               <span>프로필</span>
             </div>
           </div>
         </div>
         <div id="modal"></div>
-        <MoreSetting />
+        <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
     </>
   );
