@@ -10,11 +10,21 @@ import HeaderProfile from "./HeaderProfile";
 import HeaderSearch from "./HeaderSearch";
 import HeaderPost from "./HeaderPost";
 import PostModal from "../Modal/PostModal/PostModal";
+import MoreSettingModal from "../Modal/MoreSettingModal";
 
 export default function Header() {
+  const [moreSettingModalIsOpen, setMoreSettingModalIsOpen] = useState(false);
   const [postModalIsOpen, setPostModalIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
+
+  const moreSettingModalOpenHandler = () => {
+    setMoreSettingModalIsOpen(!moreSettingModalIsOpen);
+  };
+
+  const moreSettingModalCloseHandler = () => {
+    setMoreSettingModalIsOpen(false);
+  };
 
   const postModalOpenHandler = () => {
     setPostModalIsOpen(!postModalIsOpen);
@@ -69,7 +79,10 @@ export default function Header() {
           />
         </div>
 
-        <MoreSetting modalIsOpen={modalIsOpen} />
+        <MoreSetting
+          modalIsOpen={modalIsOpen}
+          moreSettingModalOpenHandler={moreSettingModalOpenHandler}
+        />
       </header>
 
       <SearchModal
@@ -78,6 +91,11 @@ export default function Header() {
       />
       {postModalIsOpen && (
         <PostModal postModalCloseHandler={postModalCloseHandler} />
+      )}
+      {moreSettingModalIsOpen && (
+        <MoreSettingModal
+          moreSettingModalCloseHandler={moreSettingModalCloseHandler}
+        />
       )}
     </>
   );

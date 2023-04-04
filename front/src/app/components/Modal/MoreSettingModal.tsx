@@ -1,15 +1,20 @@
 import classes from "./MoreSettingModal.module.css";
 
 type moreSettingModalType = {
-  settingModalHanlder: () => void;
+  moreSettingModalCloseHandler: () => void;
 };
 
 export default function MoreSettingModal({
-  settingModalHanlder,
+  moreSettingModalCloseHandler,
 }: moreSettingModalType) {
   return (
     <>
-      <div id="more_setting_modal"></div>
+      <div
+        className={classes.modal_container}
+        onClick={moreSettingModalCloseHandler}
+      >
+        <h1>더보기 모달</h1>
+      </div>
     </>
   );
 }
