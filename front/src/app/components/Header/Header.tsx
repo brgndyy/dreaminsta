@@ -1,13 +1,13 @@
 "use client";
 
 import classes from "./Header.module.css";
-import { AiFillHome, AiOutlineHome } from "react-icons/ai";
-import Link from "next/link";
 import MoreSetting from "./MoreSetting";
 import { useState } from "react";
 import SearchModal from "../Modal/SearchModal";
 import HeaderLogo from "./HeaderLogo";
 import HeaderCategory from "./HeaderCategory";
+import HeaderHome from "./HeaderHome";
+import { usePathname } from "next/navigation";
 
 const category = ["검색", "만들기", "프로필"];
 
@@ -17,12 +17,18 @@ export default function Header() {
 
   const modalOpenHandler = (name: string) => {
     setSelected(name);
-    setModalIsOpen(!modalIsOpen);
+    setModalIsOpen(true);
   };
 
   const modalCloseHandler = () => {
     setSelected("");
     setModalIsOpen(false);
+  };
+
+  const reloadHandler = (pathname: string) => {
+    if (pathname === "/") {
+      window.location.reload();
+    }
   };
 
   return (
@@ -32,25 +38,10 @@ export default function Header() {
           modalIsOpen ? classes.modal_open : ""
         }`}
       >
-        <HeaderLogo modalIsOpen={modalIsOpen} />
+        <HeaderLogo modalIsOpen={modalIsOpen} reloadHandler={reloadHandler} />
 
         <div className={classes.link_container}>
-          <Link href={"/"} className={classes.home}>
-            <div
-              className={`${classes.icon} ${classes.home_icon} ${
-                modalIsOpen && classes.icon_modal_open
-              }`}
-            >
-              {modalIsOpen ? <AiOutlineHome /> : <AiFillHome />}
-            </div>
-            <div
-              className={classes.text}
-              style={{ display: modalIsOpen ? "none" : "flex" }}
-            >
-              <span>홈</span>
-            </div>
-          </Link>
-
+          <HeaderHome modalIsOpen={modalIsOpen} reloadHandler={reloadHandler} />
           {category.map((category, index) => {
             return (
               <HeaderCategory
@@ -63,7 +54,6 @@ export default function Header() {
             );
           })}
         </div>
-
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
       {modalIsOpen && (
