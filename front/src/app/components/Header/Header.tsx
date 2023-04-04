@@ -9,19 +9,23 @@ import HeaderHome from "./HeaderHome";
 import HeaderProfile from "./HeaderProfile";
 import HeaderSearch from "./HeaderSearch";
 import HeaderPost from "./HeaderPost";
+import PostModal from "../Modal/PostModal";
 
 export default function Header() {
-  const [searchModalIsOpen, setSearchModalIsOpen] = useState(false);
+  const [postModalIsOpen, setPostModalIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
 
-  const modalOpenHandler = () => {
-    setModalIsOpen(!modalIsOpen);
+  const postModalOpenHandler = () => {
+    setPostModalIsOpen(true);
   };
 
-  const searchModalHanlder = (name: string) => {
-    modalOpenHandler();
-    setSelected(name);
+  const postModalCloseHandler = () => {
+    setPostModalIsOpen(false);
+  };
+
+  const modalOpenHandler = () => {
+    setModalIsOpen(!modalIsOpen);
   };
 
   const modalCloseHandler = () => {
@@ -47,13 +51,13 @@ export default function Header() {
         <div className={classes.link_container}>
           <HeaderHome modalIsOpen={modalIsOpen} reloadHandler={reloadHandler} />
           <HeaderSearch
-            searchModalHanlder={searchModalHanlder}
+            modalOpenHandler={modalOpenHandler}
             modalIsOpen={modalIsOpen}
             selected={selected}
           />
 
           <HeaderPost
-            modalOpenHandler={modalOpenHandler}
+            postModalOpenHandler={postModalOpenHandler}
             modalIsOpen={modalIsOpen}
             selected={selected}
           />
@@ -67,12 +71,10 @@ export default function Header() {
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
 
-      <Modal
-        searchModalHanlder={searchModalHanlder}
-        searchModalIsOpen={searchModalIsOpen}
-        modalIsOpen={modalIsOpen}
-        modalCloseHandler={modalCloseHandler}
-      />
+      <Modal modalIsOpen={modalIsOpen} modalCloseHandler={modalCloseHandler} />
+      {postModalIsOpen && (
+        <PostModal postModalCloseHandler={postModalCloseHandler} />
+      )}
     </>
   );
 }
