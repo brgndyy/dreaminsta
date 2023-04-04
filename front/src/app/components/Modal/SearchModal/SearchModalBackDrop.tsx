@@ -15,7 +15,7 @@ export default function BackDrop({
     <>
       <>
         <div className={classes.back_drop} onClick={modalCloseHandler}>
-          <div className={classes.modal_content}>{children}</div>
+          {children}
         </div>
       </>
     </>

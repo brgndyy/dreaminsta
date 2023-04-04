@@ -5,5 +5,11 @@ type modal = {
 };
 
 export default function PostModalContent({ postModalCloseHandler }: modal) {
-  return <div>PostModalContent</div>;
+  return (
+    <div className={classes.content_container}>
+      <div className={classes.post_banner}>
+        <span>새 게시물 만들기</span>
+      </div>
+    </div>
+  );
 }

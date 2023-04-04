@@ -1,8 +1,9 @@
 .card{
     width: 50%;
     height: 100%;
-    margin: 100px auto;
+    margin: 150px auto;
     animation : fadeIn 0.3s forwards;
+
 }
 
 
