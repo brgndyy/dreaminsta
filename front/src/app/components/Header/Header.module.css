@@ -12,6 +12,7 @@
     padding: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
+    
 }
 
 .header_container.modal_open{
@@ -19,89 +20,105 @@
 }
 
 .header_container span{
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .home_container{
-    padding: 10px;
+    height: 220px;
+    margin-top: 20px;
+
 }
 
 .link_container{
     height: 85%;
 }
 
+
+
 .home_link{
     color: black;
-    font-size: 25px;
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+  font-size: 25px;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .home{
-    margin: 20px 0px;
+    margin-right: 10px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     color : black;
-    padding: 10px;
     border-radius : 40px;
+    cursor: pointer;  
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
 }
 
 .post{
-    margin: 20px 0px;
+    margin-right: 10px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     color : black;
-    padding: 10px;
     border-radius : 40px;
-    cursor: pointer;
+    cursor: pointer;  
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
 }
 
 .profile{
-    margin: 20px 0px;
+    margin-right: 10px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     color : black;
-    cursor: pointer;
-    padding: 10px;
     border-radius : 40px;
+    cursor: pointer;  
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
 }
 .search{
     margin-right: 10px;
     display: flex;
     align-items: center;
     color : black;
-    padding: 10px;
     border-radius : 40px;
     cursor: pointer;  
     width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.search_icon{
+    display : flex;
+    justify-content: center;
+    align-items : center;
 }
 
 .text{
-    margin-left: 10px;
+    margin-left: 13px;
+    display: flex;
+    justify-content : center;
+    align-items : center;
+    padding: 5px;
 }
 
 .icon{
-    margin : 0 5px;
+
     font-size: 23px;
-    margin-top: 5px;
+
     scale: 1;
     transition: all 0.3s ease;
 }
 
 .home_icon{
-    margin-right: 5px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
 }
 
-.icon_modal_open{
 
-    border : 1px solid black;
-    padding: 5px;
-    border-radius: 100%;
-}
 
 
 .post_icon { 
