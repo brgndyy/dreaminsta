@@ -6,7 +6,7 @@
     border-right: 0.5px solid black;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -23,51 +23,21 @@
     font-size: 16px;
 }
 
-.home_container{
-    height: 100px;
-    margin-top: 20px;
-}
 
-.modal_standard{
-    position: relative;
-}
+
+
 
 .link_container{
     height: 600px;
 }
 
-.insta_icon{
-    position: absolute;
-    scale: 0;
-    transition: all 0.3s ease;
-}
-
-.insta_icon.modal_open{
-    scale: 1;
-}
-
-.main_logo{
-    opacity: 1;
-    margin-top: 0;
-    font-weight: bold;
-    margin-left : 10px;
-    position: absolute;
-    transition: opacity 0.3s ease;
-}
-
-.main_logo.logo_modal_open{
-    opacity: 0;
-}
 
 
-.home_link{
-    color: black;
-  font-size: 25px;
-  margin-left: 10px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  position: relative;
-}
+
+
+
+
+
 
 .home{
     margin-right: 10px;
@@ -79,54 +49,11 @@
     width: 100%;
 
     margin: 5px 0;
-
 }
 
-.post{
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    color : black;
-    border-radius : 40px;
-    cursor: pointer;  
-    width: 100%;
-    margin: 5px 0;
-  
-}
 
-.profile{
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    color : black;
-    border-radius : 40px;
-    cursor: pointer;  
-    width: 100%;
 
-    margin: 5px 0;
-}
 
-.profile span{
-    margin-bottom: 3px;
-}
-
-.search{
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    color : black;
-    border-radius : 40px;
-    cursor: pointer;  
-    width: 100%;
-    margin: 5px 0;
-   
-}
-
-.search_icon{
-    display : flex;
-    justify-content: center;
-    align-items : center;
-}
 
 .text{
     margin-left: 13px;
@@ -170,34 +97,14 @@
 .home:hover{
     background: rgba(0, 0, 0, 0.03);
 }
-.post:hover{
-    background: rgba(0, 0, 0, 0.03);
-}
 
-.search:hover{
-    background: rgba(0, 0, 0, 0.03);
-}
-
-.profile:hover{
-    background: rgba(0, 0, 0, 0.03);
-}
 
 
 .home:hover .home_icon{
     scale: 1.05;
 }
 
-.post:hover .post_icon{
-    scale: 1.05;
-}
 
-.search:hover .search_icon{
-    scale: 1.05;
-}
-
-.profile:hover .profile_icon{
-    scale: 1.05;
-}
 
 
 
@@ -213,22 +120,11 @@
 
 
 /* 기존의 :hover 효과를 삭제하고 새로운 .selected 클래스 추가 */
-.home.selected .home_icon,
-.post.selected .post_icon,
-.search.selected .search_icon,
-.profile.selected .profile_icon {
+.home.selected .home_icon
+ {
     color: #000;
     border-color: rgba(0, 0, 0, 0.1); /* 수정 */
     scale: 1.05;
 }
 
 
-@keyframes scaleFadeOut{
-    from{
-        scale: 0;
-    }
-
-    to{
-        scale: 1;
-    }
-}
