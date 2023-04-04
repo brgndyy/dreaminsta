@@ -60,15 +60,15 @@
 }
 
 .search:hover .search_icon{
-    scale: 1.05;
+    scale: 1.3;
 }
 
 .profile:hover .profile_icon{
     scale: 1.05;
 }
 
-.post.selected .post_icon,
-.search.selected .search_icon,
+.selected .post_icon,
+ .search_icon,
 .profile.selected .profile_icon {
     color: #000;
     border-color: rgba(0, 0, 0, 0.1); /* 수정 */

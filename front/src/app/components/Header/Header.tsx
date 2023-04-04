@@ -16,7 +16,7 @@ export default function Header() {
 
   const modalOpenHandler = (name: string) => {
     setSelected(name);
-    setModalIsOpen(true);
+    setModalIsOpen(!modalIsOpen);
   };
 
   const modalCloseHandler = () => {
@@ -55,12 +55,11 @@ export default function Header() {
         </div>
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
-      {modalIsOpen && (
-        <SearchModal
-          modalCloseHandler={modalCloseHandler}
-          modalIsOpen={modalIsOpen}
-        />
-      )}
+
+      <SearchModal
+        modalCloseHandler={modalCloseHandler}
+        modalIsOpen={modalIsOpen}
+      />
     </>
   );
 }
