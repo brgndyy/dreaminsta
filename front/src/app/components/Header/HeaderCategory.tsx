@@ -1,7 +1,4 @@
-"use client";
-
 import classes from "./HeaderCategory.module.css";
-import { AiOutlineSearch } from "react-icons/ai";
 import { BsPlusSquare } from "react-icons/bs";
 
 type Category = {
@@ -20,15 +17,9 @@ export default function HeaderCategory({
   let icon;
   let className;
 
-  if (category === "검색") {
-    icon = <AiOutlineSearch />;
-    className = "search";
-  } else if (category === "만들기") {
+  if (category === "만들기") {
     icon = <BsPlusSquare />;
     className = "post";
-  } else if (category === "프로필") {
-    icon = <BsPlusSquare />;
-    className = "profile";
   }
 
   return (
