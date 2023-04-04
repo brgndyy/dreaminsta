@@ -4,13 +4,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 type Category = {
   modalIsOpen: boolean;
   selected: string;
-  searchModalHanlder: (name: string) => void;
+  modalOpenHandler: () => void;
 };
 
 export default function HeaderSearch({
   modalIsOpen,
   selected,
-  searchModalHanlder,
+  modalOpenHandler,
 }: Category) {
   return (
     <>
@@ -18,7 +18,7 @@ export default function HeaderSearch({
         className={`${classes.search} ${
           selected === "search" ? classes.selected : ""
         }`}
-        onClick={() => searchModalHanlder("search")}
+        onClick={modalOpenHandler}
       >
         <div className={`${classes.icon} ${classes.search_icon}`}>
           <AiOutlineSearch />
