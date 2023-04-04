@@ -5,21 +5,23 @@ import MoreSetting from "./MoreSetting";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 import HeaderLogo from "./HeaderLogo";
-import HeaderCategory from "./HeaderCategory";
 import HeaderHome from "./HeaderHome";
 import HeaderProfile from "./HeaderProfile";
 import HeaderSearch from "./HeaderSearch";
 import HeaderPost from "./HeaderPost";
 
-const category = ["만들기"];
-
 export default function Header() {
+  const [searchModalIsOpen, setSearchModalIsOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selected, setSelected] = useState("");
 
-  const modalOpenHandler = (name: string) => {
+  const modalOpenHandler = () => {
+    setModalIsOpen(!modalIsOpen);
+  };
+
+  const searchModalHanlder = (name: string) => {
+    modalOpenHandler();
     setSelected(name);
-    setModalIsOpen(true);
   };
 
   const modalCloseHandler = () => {
@@ -45,7 +47,7 @@ export default function Header() {
         <div className={classes.link_container}>
           <HeaderHome modalIsOpen={modalIsOpen} reloadHandler={reloadHandler} />
           <HeaderSearch
-            modalOpenHandler={modalOpenHandler}
+            searchModalHanlder={searchModalHanlder}
             modalIsOpen={modalIsOpen}
             selected={selected}
           />
@@ -65,7 +67,12 @@ export default function Header() {
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
 
-      <Modal modalCloseHandler={modalCloseHandler} modalIsOpen={modalIsOpen} />
+      <Modal
+        searchModalHanlder={searchModalHanlder}
+        searchModalIsOpen={searchModalIsOpen}
+        modalIsOpen={modalIsOpen}
+        modalCloseHandler={modalCloseHandler}
+      />
     </>
   );
 }
