@@ -3,12 +3,15 @@
 import classes from "./Header.module.css";
 import MoreSetting from "./MoreSetting";
 import { useState } from "react";
-import SearchModal from "../Modal/SearchModal";
+import Modal from "../Modal/Modal";
 import HeaderLogo from "./HeaderLogo";
 import HeaderCategory from "./HeaderCategory";
 import HeaderHome from "./HeaderHome";
+import HeaderProfile from "./HeaderProfile";
+import HeaderSearch from "./HeaderSearch";
+import HeaderPost from "./HeaderPost";
 
-const category = ["검색", "만들기", "프로필"];
+const category = ["만들기"];
 
 export default function Header() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -16,7 +19,7 @@ export default function Header() {
 
   const modalOpenHandler = (name: string) => {
     setSelected(name);
-    setModalIsOpen(!modalIsOpen);
+    setModalIsOpen(true);
   };
 
   const modalCloseHandler = () => {
@@ -41,25 +44,28 @@ export default function Header() {
 
         <div className={classes.link_container}>
           <HeaderHome modalIsOpen={modalIsOpen} reloadHandler={reloadHandler} />
-          {category.map((category, index) => {
-            return (
-              <HeaderCategory
-                modalOpenHandler={modalOpenHandler}
-                modalIsOpen={modalIsOpen}
-                selected={selected}
-                key={index}
-                category={category}
-              />
-            );
-          })}
+          <HeaderSearch
+            modalOpenHandler={modalOpenHandler}
+            modalIsOpen={modalIsOpen}
+            selected={selected}
+          />
+
+          <HeaderPost
+            modalOpenHandler={modalOpenHandler}
+            modalIsOpen={modalIsOpen}
+            selected={selected}
+          />
+          <HeaderProfile
+            selected={selected}
+            modalIsOpen={modalIsOpen}
+            setSelected={setSelected}
+          />
         </div>
+
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
 
-      <SearchModal
-        modalCloseHandler={modalCloseHandler}
-        modalIsOpen={modalIsOpen}
-      />
+      <Modal modalCloseHandler={modalCloseHandler} modalIsOpen={modalIsOpen} />
     </>
   );
 }

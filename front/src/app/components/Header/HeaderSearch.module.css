@@ -1,4 +1,4 @@
-.category{
+.search{
     margin-right: 10px;
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
     margin: 5px 0;
 }
 
-.category span{
+.search span{
     margin-bottom: 3px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 
-.category:hover{
+.search:hover{
     background: rgba(0, 0, 0, 0.03);
 }
 
@@ -55,21 +55,15 @@
     align-items : center;
 }
 
-.post:hover .post_icon{
-    scale: 1.05;
-}
+
 
 .search:hover .search_icon{
-    scale: 1.3;
-}
-
-.profile:hover .profile_icon{
     scale: 1.05;
 }
 
-.selected .post_icon,
-.selected .search_icon,
-.selected .profile_icon {
+
+
+.selected .search_icon {
     color: #000;
     border-color: rgba(0, 0, 0, 0.1); /* 수정 */
     scale: 1.05;

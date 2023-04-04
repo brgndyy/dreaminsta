@@ -1,4 +1,4 @@
-import classes from "./SearchModal.module.css";
+import classes from "./Modal.module.css";
 import BackDrop from "./BackDrop";
 
 type modalOpen = {
