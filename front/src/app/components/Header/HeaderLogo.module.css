@@ -1,0 +1,38 @@
+.home_container{
+    height: 100px;
+    margin-top: 20px;
+}
+
+.insta_icon{
+    position: absolute;
+    scale: 0;
+    transition: all 0.3s ease;
+}
+
+.insta_icon.modal_open{
+    scale: 1;
+}
+
+.main_logo{
+    opacity: 1;
+    margin-top: 0;
+    font-weight: bold;
+    margin-left : 10px;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main_logo.logo_modal_open{
+    opacity: 0;
+}
+
+
+.home_link{
+    color: black;
+  font-size: 25px;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}

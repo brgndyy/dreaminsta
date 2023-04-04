@@ -1,0 +1,88 @@
+.category{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color : black;
+    border-radius : 40px;
+    cursor: pointer;  
+    width: 100%;
+    margin: 5px 0;
+}
+
+.category span{
+    margin-bottom: 3px;
+}
+
+
+.text{
+    margin-left: 13px;
+  position: absolute;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  white-space: nowrap;
+  height: 25px;
+  overflow: hidden;
+  animation: fadeIn 0.6s forwards;
+
+}
+
+.icon{
+    font-size: 23px;
+    position: relative;
+    scale: 1;
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* 추가 */
+    border-radius: 50%; /* 추가 */
+    padding: 5px; /* 추가 */
+    display: flex; /* 추가 */
+    justify-content: center; /* 추가 */
+    align-items: center; /* 추가 */
+    margin-bottom: 3px;
+}
+
+
+.category:hover{
+    background: rgba(0, 0, 0, 0.03);
+}
+
+
+.search_icon{
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+
+.post:hover .post_icon{
+    scale: 1.05;
+}
+
+.search:hover .search_icon{
+    scale: 1.05;
+}
+
+.profile:hover .profile_icon{
+    scale: 1.05;
+}
+
+.post.selected .post_icon,
+.search.selected .search_icon,
+.profile.selected .profile_icon {
+    color: #000;
+    border-color: rgba(0, 0, 0, 0.1); /* 수정 */
+    scale: 1.05;
+}
+
+
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
