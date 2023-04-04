@@ -27,7 +27,7 @@ export default function Header() {
           </Link>
         </div>
         <div className={classes.link_container}>
-          <Link href={"/"} className={classes.home} onClick={modalHandler}>
+          <Link href={"/"} className={classes.home}>
             <div
               className={`${classes.icon} ${classes.home_icon} ${
                 modalIsOpen && classes.icon_modal_open
