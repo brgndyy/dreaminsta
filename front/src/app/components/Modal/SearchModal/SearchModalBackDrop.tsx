@@ -1,4 +1,4 @@
-import classes from "./BackDrop.module.css";
+import classes from "./SearchModalBackDrop.module.css";
 
 type Children = {
   children: React.ReactNode;

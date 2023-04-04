@@ -3,13 +3,13 @@
 import classes from "./Header.module.css";
 import MoreSetting from "./MoreSetting";
 import { useState } from "react";
-import Modal from "../Modal/Modal";
+import SearchModal from "../Modal/SearchModal/SearchModal";
 import HeaderLogo from "./HeaderLogo";
 import HeaderHome from "./HeaderHome";
 import HeaderProfile from "./HeaderProfile";
 import HeaderSearch from "./HeaderSearch";
 import HeaderPost from "./HeaderPost";
-import PostModal from "../Modal/PostModal";
+import PostModal from "../Modal/PostModal/PostModal";
 
 export default function Header() {
   const [postModalIsOpen, setPostModalIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Header() {
   const [selected, setSelected] = useState("");
 
   const postModalOpenHandler = () => {
-    setPostModalIsOpen(true);
+    setPostModalIsOpen(!postModalIsOpen);
   };
 
   const postModalCloseHandler = () => {
@@ -25,6 +25,7 @@ export default function Header() {
   };
 
   const modalOpenHandler = () => {
+    setPostModalIsOpen(false);
     setModalIsOpen(!modalIsOpen);
   };
 
@@ -71,7 +72,10 @@ export default function Header() {
         <MoreSetting modalIsOpen={modalIsOpen} />
       </header>
 
-      <Modal modalIsOpen={modalIsOpen} modalCloseHandler={modalCloseHandler} />
+      <SearchModal
+        modalIsOpen={modalIsOpen}
+        modalCloseHandler={modalCloseHandler}
+      />
       {postModalIsOpen && (
         <PostModal postModalCloseHandler={postModalCloseHandler} />
       )}

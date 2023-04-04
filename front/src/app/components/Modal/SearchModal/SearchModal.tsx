@@ -1,5 +1,6 @@
-import classes from "./Modal.module.css";
-import BackDrop from "./BackDrop";
+import classes from "./SearchModal.module.css";
+import SearchModalBackDrop from "./SearchModalBackDrop";
+import SearchModalContent from "./SearchModalContent";
 
 type modalOpen = {
   modalIsOpen: boolean;
@@ -14,15 +15,15 @@ export default function SearchModal({
 }: modalOpen) {
   return (
     <>
-      <BackDrop modalCloseHandler={modalCloseHandler}>
+      <SearchModalBackDrop modalCloseHandler={modalCloseHandler}>
         <div
           className={`${classes.search_modal_cotainer} ${
             modalIsOpen ? classes.show : classes.hide
           }`}
         >
-          모달내용
+          <SearchModalContent />
         </div>
-      </BackDrop>
+      </SearchModalBackDrop>
     </>
   );
 }
