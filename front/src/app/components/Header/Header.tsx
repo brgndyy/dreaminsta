@@ -8,12 +8,21 @@ import { BsPlusSquare } from "react-icons/bs";
 import MoreSetting from "./MoreSetting";
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import SearchModal from "../Modal/SearchModal";
+import BackDrop from "../Modal/BackDrop";
 
 export default function Header() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selected, setSelected] = useState("");
 
-  const modalHandler = () => {
+  const modalOpenHandler = (name: string) => {
+    setSelected(name);
     setModalIsOpen(!modalIsOpen);
+  };
+
+  const modalCloseHandler = () => {
+    setSelected("");
+    setModalIsOpen(false);
   };
 
   return (
@@ -23,6 +32,19 @@ export default function Header() {
           modalIsOpen ? classes.modal_open : ""
         }`}
       >
+        {selected === "search" &&
+          modalIsOpen &&
+          document.getElementById("search_modal") &&
+          createPortal(
+            <BackDrop modalCloseHandler={modalCloseHandler}>
+              <SearchModal
+                modalCloseHandler={modalCloseHandler}
+                modalIsOpen={modalIsOpen}
+              />
+            </BackDrop>,
+            document.getElementById("search_modal")!
+          )}
+        <div id="search_modal"></div>
         <div className={classes.home_container}>
           <Link href={"/"} className={classes.home_link}>
             <BsInstagram
@@ -55,7 +77,14 @@ export default function Header() {
               <span>홈</span>
             </div>
           </Link>
-          <div className={classes.search} onClick={modalHandler}>
+          <div
+            className={`${classes.search} ${
+              modalIsOpen === true && selected === "search"
+                ? classes.selected
+                : ""
+            }`}
+            onClick={() => modalOpenHandler("search")}
+          >
             <div className={`${classes.icon} ${classes.search_icon}`}>
               <AiOutlineSearch />
             </div>
@@ -66,7 +95,14 @@ export default function Header() {
               <span>검색</span>
             </div>
           </div>
-          <div className={classes.post} onClick={modalHandler}>
+          <div
+            className={`${classes.post} ${
+              modalIsOpen === true && selected === "post"
+                ? classes.selected
+                : ""
+            }`}
+            onClick={() => modalOpenHandler("post")}
+          >
             <div className={`${classes.icon} ${classes.post_icon}`}>
               <BsPlusSquare />
             </div>
@@ -77,7 +113,14 @@ export default function Header() {
               <span>만들기</span>
             </div>
           </div>
-          <div className={classes.profile} onClick={modalHandler}>
+          <div
+            className={`${classes.profile} ${
+              modalIsOpen === true && selected === "profile"
+                ? classes.selected
+                : ""
+            }`}
+            onClick={() => modalOpenHandler("profile")}
+          >
             <div className={`${classes.icon} ${classes.profile_icon}`}>
               <BsPlusSquare />
             </div>

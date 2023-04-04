@@ -1,9 +1,23 @@
-import React from "react";
+import classes from "./BackDrop.module.css";
 
-export default function BackDrop() {
+type Children = {
+  children: React.ReactNode;
+
+  modalCloseHandler: () => void;
+};
+
+export default function BackDrop({
+  children,
+
+  modalCloseHandler,
+}: Children) {
   return (
     <>
-      <div id="back_drop">BackDrop</div>
+      <>
+        <div className={classes.back_drop} onClick={modalCloseHandler}>
+          {children}
+        </div>
+      </>
     </>
   );
 }

@@ -1,0 +1,9 @@
+.back_drop{
+    position: fixed;
+    top: 0;
+    left: 60px;
+    right: 0;
+
+    width: 100vw;
+    height : 100vh;
+}

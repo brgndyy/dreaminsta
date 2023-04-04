@@ -1,5 +1,22 @@
 import classes from "./SearchModal.module.css";
+import BackDrop from "./BackDrop";
 
-export default function SearchModal() {
-  return <div id="seacrh-modal">SearchModal</div>;
+type modalOpen = {
+  modalIsOpen: boolean;
+  modalCloseHandler: () => void;
+};
+
+export default function SearchModal({
+  modalIsOpen,
+  modalCloseHandler,
+}: modalOpen) {
+  return (
+    <div
+      className={`${classes.search_modal_cotainer} ${
+        modalIsOpen === true && classes.show
+      }`}
+    >
+      모달내용
+    </div>
+  );
 }
