@@ -7,7 +7,6 @@ import SearchModal from "../Modal/SearchModal";
 import HeaderLogo from "./HeaderLogo";
 import HeaderCategory from "./HeaderCategory";
 import HeaderHome from "./HeaderHome";
-import { usePathname } from "next/navigation";
 
 const category = ["검색", "만들기", "프로필"];
 
