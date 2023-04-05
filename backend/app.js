@@ -9,6 +9,7 @@ const passport = require("passport");
 const HttpError = require("./error/http-error");
 const userRoutes = require("./routes/user-routes");
 const { sequelize } = require("./models");
+const passportConfig = require("./passport");
 
 const corsOptions = {
   origin: "http://localhost:3000",
@@ -19,7 +20,10 @@ const corsOptions = {
 dotenv.config();
 
 const app = express();
-
+// passportConfig()는 즉 passport폴더에 있는 index.js인데,
+// passportConfig 함수가 호출되어도 안에 있는 local()함수가 실행되는것이 아니라
+// 저 안에서 로컬 전략을 등록하기 위한 함수로 실행됨.
+passportConfig();
 app.set("port", process.env.PORT || 3002);
 
 sequelize
@@ -50,6 +54,9 @@ app.use(
     name: "user_cookie",
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/api/user", userRoutes);
 

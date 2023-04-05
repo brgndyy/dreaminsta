@@ -10,7 +10,7 @@ import HeaderProfile from "./HeaderProfile";
 import HeaderSearch from "./HeaderSearch";
 import HeaderPost from "./HeaderPost";
 import PostModal from "../Modal/PostModal/PostModal";
-import MoreSettingModal from "../Modal/MoreSettingModal";
+import MoreSettingModal from "../Modal/MoreSettingModal/MoreSettingModal";
 
 export default function Header() {
   const [moreSettingModalIsOpen, setMoreSettingModalIsOpen] = useState(false);

@@ -5,4 +5,7 @@ const bcrypt = require("bcryptjs");
 
 const getUserData = async (req, res, next) => {};
 
+const singUp = async (req, res, next) => {};
+
 exports.getUserData = getUserData;
+exports.singUp = singUp;
