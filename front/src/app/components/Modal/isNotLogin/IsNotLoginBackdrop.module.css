@@ -7,4 +7,7 @@
     width: 100vw;
     background-color: rgb(234, 234, 234);
     z-index: 100;
+    display: flex;
+    justify-content : center;
+    align-items :center;
 }

@@ -5,7 +5,7 @@ export default function SignUpModal() {
   return (
     <>
       <IsNotLoginBackDrop>
-        <div>gkdl</div>
+        <h1>회원가입</h1>
       </IsNotLoginBackDrop>
     </>
   );

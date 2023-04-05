@@ -1,5 +1,9 @@
-import React from "react";
+import SignUpModal from "../components/Modal/SignUpModal/SignUpModal";
 
 export default function SignUpPage() {
-  return <div>SignUpPage</div>;
+  return (
+    <>
+      <SignUpModal />
+    </>
+  );
 }
