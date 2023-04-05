@@ -6,7 +6,7 @@
     border-right: 0.3px solid rgb(215, 215, 215);
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 30;
     display: flex;
     flex-direction: column;
     padding: 10px;
