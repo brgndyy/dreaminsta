@@ -13,9 +13,9 @@ export const getData = async (user: string) => {
     // 가져온 쿠키를 서버쪽으로 보낸다 (GET 요청 사용)
     const response = await fetch("http://localhost:3002/api/user", {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `${user}=${userCookie}`, // 쿠키를 포함한 헤더 설정
       },
     });
 

@@ -4,13 +4,11 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 const getUserData = async (req, res, next) => {
-  if (req.isAuthenticated()) {
-    // 인증된 사용자라면 req.user 객체를 통해 사용자 정보를 얻을 수 있습니다.
-    const userData = req.user;
-    res.json({ user: userData });
-  } else {
-    res.status(401).json({ message: "인증되지 않은 사용자입니다." });
-  }
+  // 인증된 사용자라면 req.user 객체를 통해 사용자 정보를 얻을 수 있습니다.
+  const userData = req.user;
+
+  console.log(userData);
+  res.json({ user: userData });
 };
 
 const signUp = async (req, res, next) => {
