@@ -4,12 +4,13 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 const getUserData = async (req, res, next) => {
-  // 인증된 사용자라면 req.user 객체를 통해 사용자 정보를 얻을 수 있습니다.
   const userData = req.user;
 
   console.log(userData);
   res.json({ user: userData });
 };
+
+// 회원가입
 
 const signUp = async (req, res, next) => {
   const { email, nick, password } = req.body;
