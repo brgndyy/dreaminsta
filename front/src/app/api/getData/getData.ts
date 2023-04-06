@@ -10,7 +10,7 @@ export const getData = async (user: string) => {
   }
 
   try {
-    // 가져온 쿠키를 서버쪽으로 보낸다 (GET 요청 사용)
+    // 가져온 쿠키를 서버쪽으로 보내기
     const response = await fetch("http://localhost:3002/api/user", {
       method: "GET",
       credentials: "include",
@@ -23,7 +23,7 @@ export const getData = async (user: string) => {
       throw new Error("로그인 중 에러가 발생했습니다.");
     }
 
-    const userData = await response.json(); // 백엔드에서 반환된 회원 정보를 받아옵니다.
+    const userData = await response.json(); // 회원정보 받아오기
     return userData;
   } catch (err) {
     throw new Error("로그인 중 에러가 발생했습니다.");
