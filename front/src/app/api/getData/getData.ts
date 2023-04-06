@@ -9,9 +9,5 @@ export const getData = async (user: string) => {
     return undefined;
   }
 
-  try {
-    //백엔드로 쿠키를 보내서 해당 쿠키에 맞는 회원정보를 가져옴
-  } catch (err) {
-    throw new Error("회원정보를 가져오는데에 실패했습니다.");
-  }
+  return userCookie;
 };

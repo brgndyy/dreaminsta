@@ -2,7 +2,8 @@
 
 import classes from "./SignUpModal.module.css";
 import IsNotLoginBackDrop from "../IsNotLogin/IsNotLoginBackDrop";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 type SignUp = {
   email: string;
@@ -11,10 +12,10 @@ type SignUp = {
 };
 
 export default function SignUpModal() {
+  const router = useRouter();
   const emailRef = useRef<HTMLInputElement>(null);
   const nickRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const [signUpForm, setSignUpForm] = useState({});
 
   const formSubmitHandler = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +24,6 @@ export default function SignUpModal() {
       const email = emailRef.current.value;
       const nick = nickRef.current.value;
       const password = passwordRef.current.value;
-
-      setSignUpForm({ email, nick, password });
 
       await sendForm({ email, nick, password });
 
@@ -35,8 +34,9 @@ export default function SignUpModal() {
   };
 
   const sendForm = async ({ email, nick, password }: SignUp) => {
-    const res = await fetch("http://localhost3002/api/user/signup", {
+    const res = await fetch("http://localhost:3002/api/user/signup", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -54,6 +54,8 @@ export default function SignUpModal() {
     const data = await res.json();
 
     console.log(data);
+
+    router.push("/");
   };
 
   return (
