@@ -6,7 +6,6 @@ module.exports = () => {
   //passport.authenticate 콜백함수에서 req.login 함수 실행해서 serializeUser 함수 실행.
   // serializeUser 메서드는 req.session 객체에 어떤 정보를 저장할건지 정하는 메서드
   passport.serializeUser((user, done) => {
-    console.log(user);
     done(null, user.id); //req.session에 id 정보를 넣겠다.
   });
 
